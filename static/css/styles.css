@@ -97,6 +97,9 @@ footer#foot2 {
 	background-color: #ccc;
 	color: #333;
 }
+footer#foot2 p {
+    margin-bottom: 0px;
+}
 
 .software-list li {
     margin-bottom: 0px;

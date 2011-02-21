@@ -28,39 +28,49 @@
         <h2>{% if markup_type == 'rst' %}
         Docutils/rst-Pygments Output
         {% elif markup_type == 'markdown' %}
+        
         Markdown-Pygments Output 
+        
         {% else %}
+        
         Instructions
+        <div class="document">
         {%endif%}<h2>
+        
         {% if raw_input == '' %}<h3>(no input)</h3>{% endif %}
+        
         {% if markup_type != 'rst' and markup_type != 'markdown' %}
-        <p>Fill out the form to the left. Select a markup language (either Markdown or reStructuredText) and then type using that markup language in the textbox. Submit to see the results.</p>
+        <p>Fill out the form to the left. 
+        Select a markup language (either Markdown or reStructuredText) and then type using that markup language in the textbox. 
+        Submit to see the results.</p>
         
         <p>For coloring programming code, use the following:</p>
         <dl>
-        	<dt>Markdown/Pygments example</dt>
-        	<dd>
-<pre><code>
-Here is some python code:
-
-    :::python
-
-    def function(self):
-        pass
-</code></pre></dd>
-        	<dt>reStructuredText/Python</dt>
-        	<dd>
+        	<dt>Markdown/Pygments example:</dt>
+        	<dd><div class="codehilite">
 <pre>
 <code>
-.. sourcecode:: python
+Here is some python code:
 
-    def function(self):
-        pass
+    <span class="p">:::</span><span class="ow">python</span>
+
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 </code>
-</pre>        	
-        	</dd>
+</pre>
+            </div></dd>
+            <dt>reStructuredText/Pygments example:</dt>
+            <dd><div class="highlight">
+<pre><span class="p">..</span> <span class="ow">sourcecode</span><span class="p">::</span> <span class="k">python</span>
+
+        <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">pass</span>
+</pre></div>
+            </dd>
         </dl>
+        </div>
         {%endif%}
+        
         {{html_output}}
         
     </div>
