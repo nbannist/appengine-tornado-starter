@@ -1,0 +1,134 @@
+/* styles.css 
+ @author: Nicholas Bannister-Andrews
+ @datetime: 
+*/
+
+
+/* https://github.com/paulirish/html5-boilerplate/issues/#issue/294 */
+pre {  padding: 15px; white-space: pre-wrap; word-wrap: break-word; }
+
+textarea { font-family: monospace; }
+.codehilite, .highlight { margin-bottom: 24px; }
+
+.clear { clear: both; } /* Look up the better way to clear floats without markup; I can never remember it. */
+
+body {
+    color: #666;
+    background-color: #FAFAFA;
+}
+
+.w3c header h1 {
+    color: #eee;
+    margin-bottom: 0px;
+}
+.w3c header h2 {
+    margin-bottom: 0px;
+}
+
+header {
+    margin: 0px 0px 0px 0px;
+    padding: 30px 30px 0px 30px;
+    text-align: right;
+    background-color: #333;
+    /*  -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+    /* -webkit-gradient(linear, top bottom [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#444));
+    background-image: -moz-linear-gradient(top, #000, #444);
+    /* -moz-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
+    color: #999;
+    border-bottom: 1px solid #333;
+    
+    /* SHADOWs */   
+    -moz-box-shadow: 0 0 10px 1px #888;
+    -webkit-box-shadow: 0 0 10px 1px #888;
+    box-shadow: 0 0 10px 1px #888;
+}
+
+#main {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.row.htmlmarkup {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+div.document {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.document {
+    font-size: 14px;
+    background-color: #fff;
+}
+.document ul,
+.document dl,
+.document ol {
+    margin-left: 40px;
+}
+.document h1 {
+    color: #333;
+}
+
+footer#foot1 {
+    
+    margin: 0px 0px 0px 0px;
+    padding: 30px 30px 0px 30px;
+    background-color: #333;
+    /*  -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+    /* -webkit-gradient(linear, top bottom [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));
+    background-image: -moz-linear-gradient(top, #eee, #ccc);
+    /* -moz-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
+    color: #333;
+    border-top: 1px solid #ccc;
+    
+    /* SHADOWs */   
+    -moz-box-shadow: 0 0 10px 1px #888;
+    -webkit-box-shadow: 0 0 10px 1px #888;
+    box-shadow: 0 0 10px 1px #888;
+}
+footer#foot1 {}
+footer#foot1 h2 {}
+footer#foot2 {
+	background-color: #ccc;
+	color: #333;
+}
+
+.software-list li {
+    margin-bottom: 0px;
+}
+.software-list {
+    margin-left: 20px;
+}
+
+h4 {
+    font-size: 14px;
+    margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+    font-family: Georgia, serif;
+    font-weight: lighter;
+    
+    font-weight: bold;
+    font-style: italic;
+}
+
+h5 {
+    font-size: 12px;
+    margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+    font-family: Georgia, serif;
+    font-weight: lighter;
+    
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 12px;
+    margin-bottom: 24px;	/* Changing this will break the baseline grid. */
+    font-family: Georgia, serif;
+    font-weight: lighter;
+    
+    font-style: italic;
+}
