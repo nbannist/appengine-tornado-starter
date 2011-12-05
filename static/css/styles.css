@@ -135,3 +135,63 @@ h6 {
     
     font-style: italic;
 }
+
+
+#main-menu { 
+
+	width: 100%; 
+	background-color: #ccc;
+}
+#main-menu #app-menu {
+	float: left;
+}
+#main-menu #user-menu {
+	float: right;
+	width: 400px;
+}
+
+/* User Drop Down
+ *
+ */
+#main-menu #user-menu li#user-drop-down { 
+	width: 200px; 
+	display: inline;
+	background-color: #999;
+	float: left;
+}
+#main-menu #user-menu li#user-drop-down ul { display: none; }
+#main-menu #user-menu li#user-drop-down:hover ul { 
+	display: block; 
+	width: 300px;
+	position: absolute;
+	background-color: #fff;
+}
+#main-menu #user-menu li#user-drop-down:hover ul li {
+	position: relative;
+}
+#main-menu #user-menu li#user-drop-down:hover ul li a {
+	color: #000;
+}
+
+/* NOTIFICATIONS MENU
+ *
+ */
+#main-menu #user-menu li#notifications { 
+	width: 200px; 
+	display: inline; 
+	background-color: #bbb;
+	float: left;
+}
+#main-menu #user-menu li#notifications ul { display: none; }
+#main-menu #user-menu li#notifications:hover ul { 
+	display: block; 
+	width: 300px;
+	position: absolute;
+	background-color: #fff;
+}
+#main-menu #user-menu li#notifications:hover ul li {
+	
+}
+#main-menu #user-menu li#notifications:hover ul li a {
+	color: #000;
+}
