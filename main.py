@@ -104,24 +104,6 @@ class TemplateRendering:
 
 
 
-class HomeHandler(BaseHandler, TemplateRendering):
-	"""
-	"""
-	def get(self, *args):
-		variables = {}
-		response = self.render_template('home.html', variables)
-		self.write(response)
-		
-		
-
-
-
-
-
-
-
-
-
 
 # We don't inherit from webapp.RequestHandler anymore; MainHandler now extends BaseHandler, which extends tornado.web.RequestHandler
 class MainHandler(BaseHandler, TemplateRendering):
@@ -179,12 +161,13 @@ class MainHandler(BaseHandler, TemplateRendering):
                        'page_author': 'The author of the page.', 'raw_input':raw_input, 'html_output':html_output, 'html_output_esc': html_output_esc, 'sourcecode_stylesheet': self.settings["sourcecode_stylesheet"], 'HTTPFUNCTION':'POST', 'markup_type': markup_type }
 
         # added the raw_input and html_output to the 
-        content = self.render_template('home.html', variables)
+        content = self.render_template('hello_world.html', variables)
         self.write(content)
 
 settings = {
-    "page_title": u"Project Management",
+    "page_title": u"A Good Start with Google App Engine: An Example Application -  Tornado-Jinja2-Docutils/reStructuredText-Pygments!",
     "templates": "views",
+    "sourcecode_stylesheet": "default",
     "xsrf_cookies": False,
 }
 """settings dictionary
@@ -209,9 +192,7 @@ def main():
         wsgiref.handlers.CGIHandler().run(application)        
     """
     
-    application = tornado.wsgi.WSGIApplication([ 
-    	(r"/", HomeHandler),
-	], **settings)
+    application = tornado.wsgi.WSGIApplication([ (r"/", MainHandler), ], **settings)
     """ Set up a tornado WSGIApplication """
     
     # We have to run it differently too:
