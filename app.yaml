@@ -1,5 +1,5 @@
-application: webapp-prototypes
-version: project-management-a1
+application: appengine-starter
+version: appengine-tornado-starter
 runtime: python
 api_version: 1
 
