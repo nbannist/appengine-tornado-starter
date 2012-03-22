@@ -1,16 +1,16 @@
 {% extends "global_master_page.html" %}
 
 {% block header %}<!-- header -->
-<div class="twelvecol last">
+<div class="span12 last">
     <h2>A Good Start with Google App Engine</h2>
     <h1>An Example Application</h1>
 </div><!-- /header -->
 {% endblock %}
 
 {% block main %}<!-- main -->
-<div class="row">
+<div class="row-fluid">
 <form action="" method="POST" encoding="application/x-www-form-urlencoded">
-    <div class="sixcol input">
+    <div class="span6 ">
         <h2>Input</h2>
         
         <div><label for="markup_type">Markup Language: <select id="markup_type" name="markup_type">
@@ -21,64 +21,67 @@
         <div><label for="markup_raw">Text:</label></div>
         <div><textarea id="markup_raw" cols="60" rows="10" name="markup_raw">{{raw_input}}</textarea></div>
         
-        <div><input type="submit" value="Submit" /></div>
+        <div><input class="btn btn-primary btn-large" type="submit" value="Submit" /></div>
         
     </div>
-    <div class="sixcol output last">
-        <h2>{% if markup_type == 'rst' %}
-        Docutils/rst-Pygments Output
-        {% elif markup_type == 'markdown' %}
-        
-        Markdown-Pygments Output 
-        
-        {% else %}
-        
-        Instructions
-        <div class="document">
-        {%endif%}<h2>
-        
-        {% if raw_input == '' %}<h3>(no input)</h3>{% endif %}
-        
-        {% if markup_type != 'rst' and markup_type != 'markdown' %}
-        <p>Fill out the form to the left. 
-        Select a markup language (either Markdown or reStructuredText) and then type using that markup language in the textbox. 
-        Submit to see the results.</p>
-        
-        <p>For coloring programming code, use the following:</p>
-        <dl>
-        	<dt>Markdown/Pygments example:</dt>
-        	<dd><div class="codehilite">
-<pre>
-<code>
-Here is some python code:
-
-    <span class="p">:::</span><span class="ow">python</span>
-
-    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-</code>
-</pre>
-            </div></dd>
-            <dt>reStructuredText/Pygments example:</dt>
-            <dd><div class="highlight">
-<pre><span class="p">..</span> <span class="ow">sourcecode</span><span class="p">::</span> <span class="k">python</span>
-
+    <div class="span6 instructions">
+        <div class="content">
+            <h2>
+            {% if markup_type == 'rst' %}
+            Docutils/rst-Pygments Output
+            {% elif markup_type == 'markdown' %}
+            Markdown-Pygments Output 
+            {% else %}
+            Instructions
+            {%endif%}
+            </h2>
+            <div class="document output">
+            
+            
+            {% if raw_input == '' %}
+            <h3>(no input)</h3>
+            {% else %}
+            {{html_output}}
+            {% endif %}
+            
+            {% if markup_type != 'rst' and markup_type != 'markdown' %}
+            <p>Fill out the form to the left. 
+            Select a markup language (either Markdown or reStructuredText) and then type using that markup language in the textbox. 
+            Submit to see the results.</p>
+            
+            <p>For coloring programming code, use the following:</p>
+            <dl>
+                <dt>Markdown/Pygments example:</dt>
+                <dd><div class="codehilite">
+    <pre>
+    <code>
+    Here is some python code:
+    
+        <span class="p">:::</span><span class="ow">python</span>
+    
         <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">pass</span>
-</pre></div>
-            </dd>
-        </dl>
+    </code>
+    </pre>
+                </div></dd>
+                <dt>reStructuredText/Pygments example:</dt>
+                <dd><div class="highlight">
+    <pre><code><span class="p">..</span> <span class="ow">sourcecode</span><span class="p">::</span> <span class="k">python</span>
+    
+            <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">pass</span>
+    </pre></code></div>
+                </dd>
+            </dl>
+            {%endif%}
+            </div>
         </div>
-        {%endif%}
-        
-        {{html_output}}
-        
     </div>
 </form>
 </div>
 {% if html_output_esc and html_output_esc != '' %}
-<div class="row htmlmarkup">
-    <div class="twelvecol last">
+<div class="row-fluid htmlmarkup">
+    <div class="span12 last">
 	<h2>HTML Markup</h2>
 <pre>
 {{html_output_esc}}

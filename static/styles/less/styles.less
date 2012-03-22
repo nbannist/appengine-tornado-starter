@@ -1,0 +1,97 @@
+/** 
+  Site styles   
+  @author: Nicholas Bannister-Andrews
+  @
+ */
+body {
+    font-family: Georgia, serif;
+    font-weight: lighter;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+
+header {
+    #gradient > .vertical(#000, lighten(#000, 30%));
+    .textcolor(#000);
+    .box-shadow(0px 5px 8px rgba(33,33,33,.25));
+    
+    h1, h2 {
+        text-align: right;
+        margin: 0px;
+        font-weight: normal;
+    }
+    h1 {
+        font-size: 2.25em;
+        line-height: 1em;
+        margin-bottom: 10px;
+        color: #fff;
+        font-weight: normal;
+    }
+    h2 {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        margin-top: 10px;
+    }
+}
+
+#main {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .instructions  {
+        background-color: #fff;
+        .content {
+            padding: 10px;
+        }
+    }
+    
+    h2 {
+        margin-bottom: 1.0em;
+    }
+    
+    .page {
+        padding: 20px;
+        border: 1px solid #CCC;
+    }
+    dt {
+        margin-top: 1em;
+        margin-bottom: 5px;
+    }
+    textarea {
+        width: 90%;
+        #font > #family > .monospace();
+    }
+    .htmlmarkup {
+        margin-top: 30px;
+    }
+    .document.output {
+        h1, h2, h3, h4, h5, h6 {
+            margin: .775em 0px .775em 0px;
+        }
+    }
+}
+
+
+footer {
+    #gradient > .vertical(lighten(#000, 25%), #000);
+    .textcolor(#000);
+    .box-shadow(0px -5px 8px rgba(33,33,33,.25)); 
+    padding-top: 20px;
+    a {
+        color: lighten(@linkColor, 35%);
+        
+        &:visited {
+            color: lighten(@purple, 15%);
+        }
+        &:focus {
+            color: saturate(@green, 10%);
+        }
+        &:active {
+            color: lighten(@pink, 10%);
+        }
+        &:hover {
+            color: lighten(desaturate(@red, 10%), 10%);
+        }
+    }
+}

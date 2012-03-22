@@ -1,5 +1,4 @@
-<!doctype html>  
-
+<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8"> <![endif]-->
@@ -14,31 +13,18 @@
   <meta name="description" content="{{ page_description }}">
   <meta name="author" content="{{ page_author }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/htmlboilerplate.css">
-  <!-- The 1140px Grid -->
-  <link rel="stylesheet" href="/css/1140.css" type="text/css" media="screen" />
-  <!--[if lte IE 9]>
-  <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" />
-  <![endif]-->
-  <!-- Type and image presets - NOT ESSENTIAL -->
-  <link rel="stylesheet" href="/css/typeimg.css" type="text/css" media="screen" />
-  <!-- Make minor type adjustments for 1024 monitors -->
-  <link rel="stylesheet" href="/css/smallerscreen.css" media="only screen and (max-width: 1023px)" />
-  <!-- Resets grid for mobile -->
-  <link rel="stylesheet" href="/css/mobile.css" media="handheld, only screen and (max-width: 767px)" />
-  <!-- Put your layout here -->
-  <link rel="stylesheet" href="/css/layout.css" type="text/css" media="screen" />
+  <link rel="stylesheet/less" href="/less/bootstrap/bootstrap.less">
   <!-- Code highlighting -->
-  <link rel="stylesheet" href="/css/sourcecode/{{sourcecode_stylesheet}}.css" type="text/css" media="screen" />
-  <!-- App Styles --> 
-  <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/css/old/sourcecode/{{sourcecode_stylesheet}}.css" type="text/css" media="screen" />
+  <!-- google-code-prettify -->
+  <link rel="stylesheet" href="/css/prettify.css" type="text/css" media="screen" />
   <script src="/js/libs/modernizr-1.6.min.js"></script>
+  <script src="/js/libs/less-1.3.0.min.js"></script>
 </head>
 <body>
-  <div id="container">
     <header>
     <div class="container">
-        <div class="row">
+        <div class="row-fluid">
         {% block header %}
             
         {% endblock %}
@@ -50,82 +36,59 @@
             
         {% endblock %}
     </div>
-    <footer id="foot1">
+    <footer id="footer">
+        <div class="container">
     {% block footer %}
-    <div class="container">
-        <div class="fourcol">
-            <h2>About</h2>
-            <p>This page was created as an example application to go along with an <a href="http://aurigroup.wordpress.com/2011/02/21/a-good-start-with-google-app-engine-for-python/">article I wrote</a> to give people a jumpstart on creating web applications on Google App Engine. It is not meant to be the final word on creating web applications on Google App Engine. There are <a href="http://code.google.com/p/tipfy/wiki/AppEngineFrameworks">other frameworks</a> that may suit your needs better.</p>
+        <div class="row-fluid">
+            <div class="span4">
+                <h2>About</h2>
+                <p>This page was created as an example application to go along with an <a href="http://aurigroup.wordpress.com/2011/02/21/a-good-start-with-google-app-engine-for-python/">article I wrote</a> to give people a jumpstart on creating web applications on Google App Engine. It is not meant to be the final word on creating web applications on Google App Engine. There are <a href="http://code.google.com/p/tipfy/wiki/AppEngineFrameworks">other frameworks</a> that may suit your needs better.</p>
+            </div>
+            <div class="span4">  
+                <h2>Software</h2>
+                <p>The software it uses includes:
+                    <ul class="software-list">
+                        <li><a href="http://code.google.com/appengine/">Google App Engine</a></li>
+                        <li><a href="http://tornadoweb.org/">Tornado Web Server</a> (<a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Licence, Version 2.0</a>)</li>
+                        <li><a href="http://jinja.pocoo.org/">Jinja2 Template System</a> (<a href="https://github.com/mitsuhiko/jinja2/raw/master/LICENSE">License</a>)</li>
+                        <li><a href="http://docutils.sourceforge.net/">Docutils/reStructuredText</a> (<a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public Licence</a>)</li>
+                        <li><a href="http://pypi.python.org/pypi/Markdown">Markdown</a> (<a href="http://www.opensource.org/licenses/bsd-license.php">BSD License</a>)</li>
+                        <li><a href="http://pygments.org/">Pygments</a> (<a href="http://www.opensource.org/licenses/bsd-license.php">BSD License</a>)</li>
+                        <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> - 
+                            Major components:
+                            <ul class="software-list">
+                            <li><a href="http://www.modernizr.com/">Modernizr</a>: <a href="http://www.modernizr.com/license/">MIT/BSD license</a></li>
+                            <li><a href="http://jquery.com/">jQuery</a>: <a href="http://jquery.org/license">MIT/GPL license</a></li>
+                            <li>Everything else:<br />
+                                    <a href="http://unlicense.org/">The Unlicense</a> (aka: public domain)</li>
+                            </ul></li>
+                        <li><a href="http://twitter.github.com/bootstrap/">http://twitter.github.com/bootstrap/</a>: <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></li>
+                    </ul>
+                </p>
+            </div>
+            <div class="span4 last">
+                <h2>Code</h2>
+                <p><A href="https://github.com/nbannist/appengine-tornado-starter">The code for this little application</a> is hosted on <a href="http://github.com">Github</a>.</p>
+            </div>
         </div>
-        <div class="fourcol">  
-            <h2>Software</h2>
-            <p>The software it uses includes:
-                <ul class="software-list">
-                    <li><a href="http://code.google.com/appengine/">Google App Engine</a></li>
-                    <li><a href="http://tornadoweb.org/">Tornado Web Server</a> (<a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Licence, Version 2.0</a>)</li>
-                    <li><a href="http://jinja.pocoo.org/">Jinja2 Template System</a> (<a href="https://github.com/mitsuhiko/jinja2/raw/master/LICENSE">License</a>)</li>
-                    <li><a href="http://docutils.sourceforge.net/">Docutils/reStructuredText</a> (<a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public Licence</a>)</li>
-                    <li><a href="http://pypi.python.org/pypi/Markdown">Markdown</a> (<a href="http://www.opensource.org/licenses/bsd-license.php">BSD License</a>)</li>
-                    <li><a href="http://pygments.org/">Pygments</a> (<a href="http://www.opensource.org/licenses/bsd-license.php">BSD License</a>)</li>
-                    <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> - 
-                        Major components:
-                        <ul class="software-list">
-                        <li><a href="http://www.modernizr.com/">Modernizr</a>: <a href="http://www.modernizr.com/license/">MIT/BSD license</a></li>
-                        <li><a href="http://jquery.com/">jQuery</a>: <a href="http://jquery.org/license">MIT/GPL license</a></li>
-                        <li><a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/">DD_belatedPNG</a>: <a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/#license">MIT license<a/></li>
-                        <li><a href="http://developer.yahoo.com/yui/profiler/">YUI Profiling</a>: <a href="http://developer.yahoo.com/yui/license.html">BSD license</a></li>
-                        <li><a href="http://html5doctor.com/html-5-reset-stylesheet/">HTML5Doctor CSS reset</a>: <a href="http://code.google.com/p/html5resetcss/">GNU GPL v2</a></li>
-                        <li><a href="">CSS Reset Reloaded</a>: Public Domain</li>
-                        <li>Everything else:<br />
-                                <a href="http://unlicense.org/">The Unlicense</a> (aka: public domain)</li>
-                        </ul></li>
-                    <li><a href="http://cssgrid.net/">The 1140px CSS Grid Framework</a>: <a href="http://creativecommons.org/licenses/by-sa/3.0/au/deed.en">Attribution-ShareAlike 3.0 Australia (CC BY-SA 3.0)</a></li>
-                </ul>
-            </p>
-        </div>
-        <div class="fourcol last">
-            <h2>Code</h2>
-            <p><A href="https://github.com/nbannist/appengine-tornado-starter">The code for this little application</a> is hosted on <a href="http://github.com">Github</a>.</p>
-        </div>
-    </div>
     {% endblock %}
-        <br class="clear" />
-    </footer>
-    <footer id="foot2">
-    <div class="container">
-        <div class="twlevecol">
-        	<p>Copyright &copy; 2011 <a href="http://nbannist.appspot.com/">Nicholas Bannister-Andrews<a/></p>
-        	<br class="clear" />
+        <div class="row-fluid">
+            <div class="span12">
+                <p>Copyright &copy; 2011 <a href="http://nbannist.appspot.com/">Nicholas Bannister-Andrews</a></p>
+            </div>
         </div>
-    </div>
+        </div> <!-- end of .container -->
     </footer>
-  </div> <!-- end of #container -->
+   
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.7.min.js"%3E%3C/script%3E'))</script>
   
-  <!--[if lt IE 7 ]>
-    <script src="/js/libs/dd_belatedpng.js"></script>
-    <script> DD_belatedPNG.fix('img, .png_bg'); </script>
-  <![endif]-->
-
-  <!-- yui profiler and profileviewer - remove for production -->
-  <!-- <script src="/js/profiling/yahoo-profiling.min.js"></script>
-  <script src="/js/profiling/config.js"></script> -->
-  <!-- end profiling code -->
-
-
-  <!-- change the UA-XXXXX-X to be your site's ID -->
-  <!-- <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
-  </script> -->
-  
+  <script src="/js/libs/google-code-prettify/prettify.js"></script>
+  <script>
+    $(document).ready(function() {
+        prettyPrint();
+    });
+  </script>
 </body>
 </html>
