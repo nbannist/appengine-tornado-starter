@@ -16,6 +16,7 @@
         <div><label for="markup_type">Markup Language: <select id="markup_type" name="markup_type">
             <option value="markdown" {% if markup_type != 'rst' %}selected{% endif %}>Markdown</option>
             <option value="rst" {% if markup_type == 'rst' %}selected{% endif %}>reStructuredText</option>
+            <option value="textile" {% if markup_type == 'textile' %}selected{% endif %}>Textile</option>
         </select></label></div>
         
         <div><label for="markup_raw">Text:</label></div>
@@ -31,6 +32,8 @@
             Docutils/rst-Pygments Output
             {% elif markup_type == 'markdown' %}
             Markdown-Pygments Output 
+            {% elif markup_type == 'textile' %}
+            Textile-Pygments Output
             {% else %}
             Instructions
             {%endif%}
@@ -44,7 +47,7 @@
             {{html_output}}
             {% endif %}
             
-            {% if markup_type != 'rst' and markup_type != 'markdown' %}
+            {% if markup_type != 'rst' and markup_type != 'markdown' and markup_type != 'textile' %}
             <p>Fill out the form to the left. 
             Select a markup language (either Markdown or reStructuredText) and then type using that markup language in the textbox. 
             Submit to see the results.</p>

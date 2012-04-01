@@ -26,6 +26,9 @@ import cgi
 import markdown
 """ Markdown """
 
+import textile
+""" Textile """
+
 import logging
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -73,6 +76,13 @@ class BaseHandler(tornado.web.RequestHandler):
         return html
 
 
+    def render_textile(self, txtle):
+        """
+            render_textile(self, textile)
+                self - BaseHandler
+                textile - raw textile format
+        """
+        return textile.textile(txtle)
 
 
 class TemplateRendering:
@@ -139,6 +149,16 @@ class MainHandler(BaseHandler, TemplateRendering):
                 html_output_esc = ".. sourcecode:: html\n\n    "+html_output_esc+" \n "
                 # ...process output as reStructuredText for HTML output area.
                 html_output_esc = self.render_rst(html_output_esc)
+            elif markup_type == 'textile':
+                html_output = self.render_textile(raw_input)
+                # encode to iso-8859-1 to correct output. http://www.red-mercury.com/blog/eclectic-tech/python-unicode-fixing-utf-8-encoded-as-latin-1-iso-8859-1/
+                html_output_esc = html_output.encode('iso-8859-1')
+                # encode to utf-8, split on new lines, re-join to single-line http://stackoverflow.com/questions/2201633/replace-newlines-in-a-unicode-string
+                html_output_esc = ''.join(unicode(html_output_esc, 'utf-8').splitlines())
+                # add the rst sourcode directive before output then...
+                html_output_esc = ".. sourcecode:: html\n\n    "+html_output_esc+" \n "
+                # ...process output as reStructuredText for HTML output area.
+                html_output_esc = self.render_rst(html_output_esc) 
             else:
                 html_output = self.render_md(raw_input)
                 # encode to iso-8859-1 to correct output. http://www.red-mercury.com/blog/eclectic-tech/python-unicode-fixing-utf-8-encoded-as-latin-1-iso-8859-1/
@@ -180,14 +200,10 @@ Using self.settings["page_title"] we can access the page_title entry of the sett
 
 def main():
     """The Main Function, not to be confused with the MainHandler.
-    
     This is the webapp version:
         application = webapp.WSGIApplication([('/', MainHandler)], debug=True)
-    
     This is the tornado version:
         application = tornado.wsgi.WSGIApplication([ (r"/", MainHandler), ], **settings) 
-    
-    
     We also have to run it differently too:
         wsgiref.handlers.CGIHandler().run(application)        
     """
